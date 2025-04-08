@@ -1,0 +1,198 @@
+/* About Page Specific Styles */
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-section .section-title {
+    color: var(--light-color);
+    padding-bottom: 15px;
+    text-align: center;
+    position: relative;
+    margin-top: -50px;
+}
+
+.about-section .section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.about-section .section-title {
+    text-align: center;
+}
+
+.about-content {
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    color: aliceblue;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+    margin-top: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: var(--primary-color);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid var(--primary-color);
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.timeline-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--light-color);
+}
+
+.timeline p {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ✅ Skills List Updated */
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 30px;
+    font-size: 1.05rem;
+    color: #fff;
+}
+
+.skills-list li i {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 1.1rem; /* ✅ Increased size */
+    color: var(--primary-color); /* Optional: highlight icons in primary color */
+    background: none; /* ✅ Removed any background */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .about-section {
+        padding: 60px 0;
+    }
+
+    .about-content {
+        padding: 1.5rem;
+    }
+
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .timeline-item::before {
+        left: -20px;
+    }
+}
+  
+  /* Optional: Icon-specific colors */
+  .skills-list li i.fab.fa-html5 {
+    color: #e34f26;
+  }
+  .skills-list li i.fab.fa-css3-alt {
+    color: #2965f1;
+  }
+  .skills-list li i.fab.fa-js {
+    color: #f0db4f;
+  }
+  .skills-list li i.fab.fa-react {
+    color: #61dafb;
+  }
+  .skills-list li i.fab.fa-bootstrap {
+    color: #7952b3;
+  }
+  .skills-list li i.fab.fa-figma {
+    color: #a259ff;
+  }
+  .skills-list li i.fab.fa-adobe {
+    color: #ff0000;
+  }
+  .skills-list li i.fab.fa-git-alt {
+    color: #f1502f;
+  }
+  .skills-list li i.fab.fa-github {
+    color: #333;
+  }
+  .skills-list li i.fab.fa-docker {
+    color: #0db7ed;
+  }
+  .skills-list li i.fas.fa-leaf {
+    color: #6db33f;
+  }
+  .skills-list li i.fas.fa-database {
+    color: #00758f;
+  }
+  .skills-list li i.fas.fa-code {
+    color: #3e8ed0;
+  }
+  .skills-list li i.fas.fa-envelope-open-text {
+    color: #ef6c00;
+  }
+  .skills-list li i.fas.fa-cogs {
+    color: #7e57c2;
+  }
+  .skills-list li i.fas.fa-network-wired {
+    color: #0288d1;
+  }
+  .skills-list li i.fas.fa-pencil-ruler {
+    color: #607d8b;
+  }
+  .skills-list li i.fas.fa-mobile-alt {
+    color: #4caf50;
+  }
+  

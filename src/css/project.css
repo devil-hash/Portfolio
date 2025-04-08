@@ -1,0 +1,140 @@
+/* Projects Page Specific Styles */
+
+.project-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+    background: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.3);
+}
+
+.project-img-container {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+.project-body {
+    padding: 20px;
+}
+
+/* ✅ Updated Tech Badge */
+.tech-badge {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    font-size: 1rem;
+    border-radius: 20px;
+    color: white;
+    background: transparent !important; /* ✅ removed background color */
+}
+
+/* Tech Icon Styling */
+.tech-badge i {
+    font-size: 1.2rem; /* ✅ increased size */
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Project Links */
+.project-links {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.project-links a {
+    flex: 1;
+    text-align: center;
+}
+
+.category-title {
+    color: white;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Project Modal Styles */
+.project-modal .modal-content {
+    background: var(--dark-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-modal .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-modal .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .projects-section {
+        padding: 60px 0;
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
+
+    .project-img-container {
+        height: 150px;
+    }
+}
+
+/* Tech Icon Color Classes */
+.html-icon { color: #e34c26; }
+.css-icon { color: #2965f1; }
+.js-icon, .javascript-icon { color: #f7df1e; }
+.reactjs-icon, .react-icon { color: #61dafb; }
+.bootstrap-icon { color: #7952b3; }
+.springboot-icon { color: #6db33f; }
+.mysql-icon { color: #00758f; }
+.kubernetes-icon { color: #326ce5; }
+.figma-icon { color: #a259ff; }
+.emailjsicon-icon { color: #cf3c5e; }
+.aos-icon { color: #ff5f6d; }

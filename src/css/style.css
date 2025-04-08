@@ -1,0 +1,404 @@
+/* ===== Base Styles ===== */
+:root {
+    --primary-color: #ff3f3f;
+    --secondary-color: #6c757d;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --body-bg: #353535;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: monospace !important;
+    background-color: var(--body-bg);
+    color: var(--light-color);
+    padding-top: 56px;
+    background-image: url('../assets/main-bg.jpg');
+    background-size: cover;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* ===== Navigation ===== */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    transition: var(--transition);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 600;
+    padding: 8px 15px;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: calc(100% - 30px);
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/main-bg.jpg') no-repeat center/cover;
+    padding: 100px 0;
+}
+
+.typing-text {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--primary-color);
+    animation: 
+        typing 3.5s steps(40) infinite,
+        blink-caret 0.75s step-end infinite;
+    display: inline-block;
+    max-width: 470px;
+    width: 0;
+    box-sizing: border-box;
+    color: #f8f9fa;
+    font-weight: bold;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color); }
+}
+
+.hero-description {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.skill {
+    font-weight: 700;
+}
+
+.programming { color: #d138ff; }
+.development { color: #3dd095; }
+.design { color: #53c3f0; }
+
+.hero-image {
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+    width: 400px;
+    margin-left: 100px;
+    border-radius: 90%;
+}
+
+.hero-image:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== About Section ===== */
+.about-section {
+    padding: 100px 0;
+}
+
+.about-image {
+    border: 5px solid rgba(255, 200, 124, 0.75);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 200, 124, 0.3);
+}
+
+.skills-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+/* ===== Projects Section ===== */
+.projects-section {
+    padding: 100px 0;
+}
+
+.category-title {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.category-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-body {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    margin-bottom: 15px;
+}
+
+.tech-tags {
+    margin-bottom: auto;
+}
+
+/* ===== Contact Section ===== */
+.contact-section {
+    padding: 100px 0;
+}
+
+.contact-info {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.info-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 63, 63, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.contact-form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 63, 63, 0.25);
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 767.98px) {
+    /* Hero Section Mobile Specific Styles */
+    .hero-section {
+        text-align: center;
+        padding: 80px 20px;
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('../assets/main-bg.jpg') no-repeat center/cover fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-content {
+        order: 2;
+    }
+
+    .hero-image {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto 30px;
+        order: 1;
+    }
+
+    .typing-text {
+        margin: 0 auto;
+        animation: 
+            typing 3s steps(30) infinite,
+            blink-caret 0.75s step-end infinite;
+        font-size: clamp(1.2rem, 6vw, 1.8rem);
+        max-width: 350px;
+    }
+
+    .hero-description {
+        margin: 0 auto 2rem;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    /* Keep all other existing mobile styles */
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .info-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .info-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    .nav-link::after{
+        left: -0px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .project-card {
+        margin-bottom: 30px;
+    }
+}
+
+/* ===== Bootstrap Overrides ===== */
+/* === Custom Button Colors === */
+.btn-hire {
+    background-color: #e03535 !important;
+    border:3px solid #e03535 !important;
+    color: white !important;
+}
+
+.btn-hire:hover {
+    background-color: transparent !important;
+    border-color: #e03535 !important;
+    color: white !important;
+}
+
+.btn-download {
+    border: 3px solid white !important;
+    color: white !important;
+    background-color: transparent !important;
+}
+
+.btn-download:hover {
+    background-color: #e03535 !important;
+    color: white !important;
+    border-color: #e03535 !important;
+}
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255, 63, 63, 0.25);
+}

@@ -1,0 +1,82 @@
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.typing-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--primary-color);
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary-color); }
+}
+
+.hover-grow {
+    transition: transform 0.3s ease;
+}
+
+.hover-grow:hover {
+    transform: scale(1.05);
+}
+
+/* Page Transition Animations */
+.page-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.page-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 300ms ease-out;
+}
+
+.page-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-exit-active {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 300ms ease-in;
+}
