@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        NETLIFY_AUTH_TOKEN = credentials('netlify-token') // Make sure this matches the correct Jenkins credential ID
+        NETLIFY_AUTH_TOKEN = credentials('netlify-tokken') // Make sure this matches the correct Jenkins credential ID
     }
 
     stages {
