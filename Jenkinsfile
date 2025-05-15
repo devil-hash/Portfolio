@@ -6,7 +6,7 @@ pipeline {
     }
 
     environment {
-        NETLIFY_AUTH_TOKEN = credentials('netlify-token') // Use the Credential ID you set
+        NETLIFY_AUTH_TOKEN = credentials('netlify-tokken') // Use the Credential ID you set
     }
 
     stages {
