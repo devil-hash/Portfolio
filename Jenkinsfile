@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'NodeJS 18' // Match the Node.js tool name in Jenkins
+        nodejs 'Nodejs 20' // Match the Node.js tool name in Jenkins
     }
 
     environment {
