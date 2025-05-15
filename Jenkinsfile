@@ -2,21 +2,24 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Nodejs 20' // Your configured Node.js version in Jenkins
+        nodejs 'Nodejs 20' // Your Node.js config
     }
 
     environment {
-        NETLIFY_AUTH_TOKEN = credentials('netlify-tokken') // Correct Jenkins credential ID
+        NETLIFY_AUTH_TOKEN = credentials('netlify-tokken')
     }
 
     options {
-        // Clean workspace before starting build to avoid permission issues
-        wipeWorkspace()
-        // Timeout for the whole pipeline (optional, adjust as needed)
-        timeout(time: 30, unit: 'MINUTES')
+        timeout(time: 30, unit: 'MINUTES') // Keep timeout if you want
     }
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Clone Repo') {
             steps {
                 git url: 'https://github.com/devil-hash/Portfolio.git', branch: 'main'
@@ -25,7 +28,6 @@ pipeline {
 
         stage('Prepare Environment') {
             steps {
-                // Clean npm cache and increase npm timeout/retries to avoid EIDLETIMEOUT issues
                 bat '''
                 npm cache clean --force
                 npm config set fetch-timeout 120000
