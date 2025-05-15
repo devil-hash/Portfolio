@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Nodejs 20' // Your Node.js config
+        nodejs 'Nodejs 20'
     }
 
     environment {
@@ -10,7 +10,7 @@ pipeline {
     }
 
     options {
-        timeout(time: 30, unit: 'MINUTES') // Keep timeout if you want
+        timeout(time: 30, unit: 'MINUTES')
     }
 
     stages {
@@ -53,7 +53,7 @@ pipeline {
         stage('Deploy to Netlify') {
             steps {
                 bat 'npm install -g netlify-cli'
-                bat 'npx netlify deploy --prod --dir=build --auth=%NETLIFY_AUTH_TOKEN% --site=d4baa26f-3e97-4e46-80b5-cc71f2214e03'
+                bat 'npx netlify deploy --prod --dir=build --site=d4baa26f-3e97-4e46-80b5-cc71f2214e03'
             }
         }
     }
