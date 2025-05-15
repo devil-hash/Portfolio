@@ -2,11 +2,18 @@ pipeline {
     agent any
 
     tools {
-        nodejs 'Nodejs 20' // Match your configured Node.js installation in Jenkins
+        nodejs 'Nodejs 20' // Your configured Node.js version in Jenkins
     }
 
     environment {
-        NETLIFY_AUTH_TOKEN = credentials('netlify-tokken') // Make sure this matches the correct Jenkins credential ID
+        NETLIFY_AUTH_TOKEN = credentials('netlify-tokken') // Correct Jenkins credential ID
+    }
+
+    options {
+        // Clean workspace before starting build to avoid permission issues
+        wipeWorkspace()
+        // Timeout for the whole pipeline (optional, adjust as needed)
+        timeout(time: 30, unit: 'MINUTES')
     }
 
     stages {
@@ -16,9 +23,22 @@ pipeline {
             }
         }
 
+        stage('Prepare Environment') {
+            steps {
+                // Clean npm cache and increase npm timeout/retries to avoid EIDLETIMEOUT issues
+                bat '''
+                npm cache clean --force
+                npm config set fetch-timeout 120000
+                npm config set fetch-retries 5
+                npm config set fetch-retry-factor 10
+                npm config set fetch-retry-mintimeout 10000
+                '''
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
-                bat 'npm ci' 
+                bat 'npm ci'
             }
         }
 
