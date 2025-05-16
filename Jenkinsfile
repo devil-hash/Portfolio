@@ -17,6 +17,10 @@ pipeline {
         stage('Clean Workspace') {
             steps {
                 cleanWs()
+                bat '''
+                if exist node_modules rmdir /s /q node_modules
+                if exist package-lock.json del package-lock.json
+                '''
             }
         }
 
@@ -30,17 +34,21 @@ pipeline {
             steps {
                 bat '''
                 npm cache clean --force
-                npm config set fetch-timeout 120000
-                npm config set fetch-retries 5
+                npm config set registry https://registry.npmjs.org/
+                npm config set fetch-timeout 300000
+                npm config set fetch-retries 10
                 npm config set fetch-retry-factor 10
                 npm config set fetch-retry-mintimeout 10000
+                npm config set fetch-retry-maxtimeout 60000
                 '''
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                bat 'npm ci'
+                retry(3) {
+                    bat 'npm ci'
+                }
             }
         }
 
