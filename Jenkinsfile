@@ -60,8 +60,8 @@ pipeline {
 
         stage('Deploy to Netlify') {
             steps {
-                bat 'npm install -g netlify-cli'
-                bat 'npx netlify deploy --prod --dir=build --site=d4baa26f-3e97-4e46-80b5-cc71f2214e03'
+                bat 'npm install --save-dev netlify-cli'
+                bat 'npx netlify deploy --prod --auth=%NETLIFY_AUTH_TOKEN% --dir=build --site=d4baa26f-3e97-4e46-80b5-cc71f2214e03'
             }
         }
     }
