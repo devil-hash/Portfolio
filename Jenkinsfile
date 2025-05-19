@@ -25,10 +25,14 @@ pipeline {
         }
 
         stage('Clone Repo') {
-            steps {
+        steps {
+            bat 'git config --global http.postBuffer 524288000' // handles large repos
+            retry(3) {
                 git url: 'https://github.com/devil-hash/Portfolio.git', branch: 'main'
+                }
             }
         }
+
 
         stage('Prepare Environment') {
             steps {
