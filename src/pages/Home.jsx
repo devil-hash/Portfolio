@@ -35,7 +35,7 @@ const Home = () => {
             </div>
             <div className="col-lg-6" data-aos="fade-right">
               <h1 className="typing-text">
-                Hello Synergech, I'm <span className="highlight">Gowtham</span>
+                Hi Synergech, I'm <span className="highlight">Gowtham</span>
               </h1>
               <div className="hero-description">
                 <p>
