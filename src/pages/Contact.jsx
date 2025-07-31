@@ -44,7 +44,7 @@ const Contact = () => {
     e.preventDefault();
     if (validate()) {
       emailjs.sendForm(
-        'service_oiuhi7p',
+        'service_fdg472a',
         'template_wwt2ksc',
         form.current,
         'hZb2trePtz-sEyskD'
